@@ -1,0 +1,9 @@
+<!ELEMENT Raspberry (name+, ip+, sensoren*)>
+
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT ip (#PCDATA)>
+
+<!ELEMENT sensoren (ort?, typ?, wert?)>
+<!ELEMENT ort (#PCDATA)>
+<!ELEMENT typ (#PCDATA)>
+<!ELEMENT wert (#PCDATA)>
