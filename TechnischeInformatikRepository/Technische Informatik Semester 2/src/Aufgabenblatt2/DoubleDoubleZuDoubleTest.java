@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class DoubleDoubleZuDoubleTest {
 
-	private final double DELTA = 1E-14;
+	private static final double DELTA = 1E-14;
 
 	/** Multiplikation testen */
 

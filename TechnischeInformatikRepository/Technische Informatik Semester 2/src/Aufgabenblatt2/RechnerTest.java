@@ -6,9 +6,18 @@ import org.junit.Test;
 
 import Aufgabenblatt2.Rechner.Operation;
 
+/** Testklasse für Rechner
+ * 
+ * Praktikum TIPR2, WS 2015
+ *
+ * @author Anushavan Melkonyan (Anushavan.Melkonyan@haw-hamburg.de)
+ *
+ */
+ 
+
 public class RechnerTest {
 
-	private final double DELTA = 1E-14;
+	private static final double DELTA = 1E-14;
 
 	@Test
 	public void testRechner() {
