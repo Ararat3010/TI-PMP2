@@ -3,7 +3,6 @@ package Aufgabenblatt2;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Eine Klasse die mit Streams arbeitet
@@ -16,16 +15,20 @@ import java.util.stream.Stream;
 public class Streams {
 
 	/**
-	 * Version 2.0 läuft 
+	 * Version 2.0 läuft
 	 *
 	 * @param text
 	 * @return
 	 */
 
-	public List<String> verarbeitungVonStrings(String text) {String[] listArray = { text };
-			List<String> list = Arrays.asList(listArray);
-			List<String> listStream = list.stream().filter(s -> s != null).map(s -> s.trim()).map(s -> s.toUpperCase())
-				.map(s -> s.replaceAll("�", "AE").replaceAll("�", "OE").replaceAll("�", "UE").replaceAll("�", "SS"))
+	public List<String> verarbeitungVonStrings(String text) {
+		String[] listArray = { text };
+		List<String> list = Arrays.asList(listArray);
+		List<String> listStream = list.stream().filter(s -> s != null)
+				.map(s -> s.trim())
+				.map(s -> s.toUpperCase())
+				.map(s -> s.replaceAll("Ä", "AE").replaceAll("Ö", "OE")
+						.replaceAll("Ü", "UE").replaceAll("ß", "SS"))
 				.map(s -> {
 					if (s.length() > 8) {
 						return s.substring(0, 8);
@@ -41,11 +44,16 @@ public class Streams {
 	 * Aktuelle Version 1.0 die läuft ohne Methode
 	 */
 
-	String[] listArray = { "Eingabe", "Aüßeres", null, "Strassen-Feger", "ein Haus" };
+	String[] listArray = { "Eingabe", "Aüßeres", null, "Strassen-Feger",
+			"ein Haus" };
 	List<String> list = Arrays.asList(listArray);
-	List<String> listStream = list.stream().filter(s -> s != null).map(s -> s.trim()).map(s -> s.toUpperCase())
-			.map(s -> s.replaceAll("Ä", "AE").replaceAll("Ö", "OE").replaceAll("Ü", "UE").replaceAll("ß", "SS"))
-			.map(s -> {
+	List<String> listStream = list
+			.stream()
+			.filter(s -> s != null)
+			.map(s -> s.trim())
+			.map(s -> s.toUpperCase())
+			.map(s -> s.replaceAll("Ä", "AE").replaceAll("Ö", "OE")
+					.replaceAll("Ü", "UE").replaceAll("ß", "SS")).map(s -> {
 				if (s.length() > 8) {
 					return s.substring(0, 8);
 				}
