@@ -1,7 +1,9 @@
 package Aufgabenblatt2;
 
+
 /**
  * Diese Klasse Simuliert einen Rennabbruch
+ * 
  * @author Bennet Honisch (Bennet.honisch@haw-hamburg.de)
  * @autho Anushavan Melkonyan (Anushavan.Melkonyan@haw-hamburg.de)
  *
@@ -23,26 +25,35 @@ public class Rennabbruch extends Thread {
 	private Rennauto auto3;
 	
 	/**
-	 * Variable für die Rundenanzahl
+	 * Viertes Auto
+	 */
+	private Rennauto auto4;
+	
+	/**
+	 * Variable fuer die Rundenanzahl
 	 */
 	private int runden;
 
 	/**
-	 * Konstruktor für die Autos
+	 * Konstruktor fuer die Autos
 	 * @param auto1
 	 * @param auto2
 	 * @param auto3
+	 * @param auto4
 	 */
-	public Rennabbruch(Rennauto auto1, Rennauto auto2, Rennauto auto3,int runden) {
+	public Rennabbruch(Rennauto auto1, Rennauto auto2, Rennauto auto3,
+			Rennauto auto4,int runden) {
 		this.auto1 = auto1;
 		this.auto2 = auto2;
 		this.auto3 = auto3;
+		this.auto4 = auto4;
 		this.runden = runden;
 		
 	}
 
 	/**
-	 * die Funktion Math.random errechnet eine Zufallszahl in dem Bereich 1-10(rennAbbruchWahrscheinlichkeit)
+	 * Die Funktion Math.random errechnet eine Zufallszahl in dem Bereich 1-10
+	 * (rennAbbruchWahrscheinlichkeit).
 	 * Nach jeder Berechnung wird eine Sekunde gewartet
 	 * Wenn die Wahrscheinlichkeit 1 ist (10%), dann werden alle Rennauto-Threads beendet.
 	 */
@@ -50,7 +61,7 @@ public class Rennabbruch extends Thread {
 	public void run() {
 		while (!isInterrupted()) {
 			for (int i = 1; !isInterrupted(); i++) {
-				int rennabbruchWahrscheinlichkeit = (int) (Math.random() * 9 + 1);
+				int rennabbruchWahrscheinlichkeit = (int) (Math.random() *9+1);
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
@@ -61,6 +72,7 @@ public class Rennabbruch extends Thread {
 					auto1.interrupt();
 					auto2.interrupt();
 					auto3.interrupt();
+					auto4.interrupt();
 					System.out.println("Rennabbruch\n");
 				}
 				if (i == this.runden)

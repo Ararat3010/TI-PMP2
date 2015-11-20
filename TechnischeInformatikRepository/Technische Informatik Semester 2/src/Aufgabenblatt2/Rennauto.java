@@ -2,66 +2,76 @@ package Aufgabenblatt2;
 
 /**
  * Diese Klasse Simuliert ein Rennauto
- * @author Bennet Honisch (Bennet.honisch@haw-hamburg.de)
- * @autho Anushavan Melkonyan (Anushavan.Melkonyan@haw-hamburg.de)
+ * 
+ * Praktikum TIPR2, WS 2015
  *
+ * @author Anushavan Melkonyan (Anushavan.Melkonyan@haw-hamburg.de),
+ * @author Bennet Honisch (Bennet.honisch@haw-hamburg.de)
+ * 
+ *         Aufgabe: Aufgabenblatt 2, Aufgabe 3
  */
 public class Rennauto extends Thread implements Comparable<Rennauto> {
 	/**
 	 * Variable Geschwindigkeit der Autos 0,8-1,2
 	 */
-	private double geschwindigkeit;
-	
-	/**
-	 * Streckenlänge des Rennens
-	 */
-	private double streckenlaenge;
+	private double durchschnittsGeschwindigkeit;
 
 	/**
-	 * Konstruktor des Autos
-	 * @param speed
-	 * @param length
+	 * Marke der gesponsorten Autos
 	 */
-	public Rennauto(double speed, double length) {
-		this.geschwindigkeit = speed;
-		this.streckenlaenge = length;
+	private String name;
+
+	/**
+	 * Streckenlaenge des Rennens
+	 */
+	private double laengeDerRennstrecke;
+
+	/**
+	 * Konstruktor
+	 * 
+	 * @param name
+	 * @param durchschnittsGeschwindigkeit
+	 * @param laengeDerRennstrecke
+	 */
+	public Rennauto(String name, double durchschnittsGeschwindigkeit,
+			double laengeDerRennstrecke) {
+		this.name = name;
+		this.durchschnittsGeschwindigkeit = durchschnittsGeschwindigkeit;
+		this.laengeDerRennstrecke = laengeDerRennstrecke;
+		
 	}
 
 	/**
-	 * Variable zum Speichern der benötigten Zeit für ein Rennen
+	 * Variable zum Speichern der benoetigten Zeit fuer ein Rennen
 	 */
 	private double gesamteRennzeit = 0.0;
 
 	/**
-	 * Getter für die Zeit
-	 * @return
-	 */
-	public double getZeit() {
-		return this.gesamteRennzeit;
-	}
-
-	/**
-	 * run-Methode der Klasse Rennauto,in jedem Schritt wird die Geschwindigkeit verändert. 
-	 * Sie variiert zufallsbasiert von 0,8 sek. - 1,2 sek.
-	 * Nach jedem Schritt wird die Postion des Autos auf der Strecke ausgegeben.
-	 * Wenn das Auto das Ziel erreicht, erfolgt eine Ausgabe("Auto hat das Ziel erreicht").
-	 * Wenn ein Rennabbruch das Rennen beendet, wird das Rennen abgebrochen und die Autos 
-	 * kommen nicht ins Ziel.
+	 * run-Methode der Klasse Rennauto,in jedem Schritt wird die Geschwindigkeit
+	 * veraendert. Sie variiert zufallsbasiert von 0,8 sek. - 1,2 sek. Nach
+	 * jedem Schritt wird die Postion des Autos auf der Strecke ausgegeben. Wenn
+	 * das Auto das Ziel erreicht, erfolgt eine
+	 * Ausgabe("Auto hat das Ziel erreicht"). Wenn ein Rennabbruch das Rennen
+	 * beendet, wird das Rennen abgebrochen und die Autos kommen nicht ins Ziel.
 	 */
 	@Override
 	public void run() {
 		while (!isInterrupted()) {
-			for (double schritte = 1; schritte <= this.streckenlaenge & !isInterrupted(); schritte++) {
-				geschwindigkeit = (Math.random() * 0.4 + 0.8);
-				gesamteRennzeit += geschwindigkeit;
-				geschwindigkeit *= 1000;
-				System.err.format(Thread.currentThread().getName() + ": %.1f/%.1f\n", schritte, this.streckenlaenge);
-				if (schritte == this.streckenlaenge) {
-					System.err.format("%s hat das Ziel erreicht\n", this.getName());
+			for (double schritte = 1; schritte <= this.laengeDerRennstrecke
+					& !isInterrupted(); schritte++) {
+				durchschnittsGeschwindigkeit = (Math.random() * 0.4 + 0.8);
+				gesamteRennzeit += durchschnittsGeschwindigkeit;
+				durchschnittsGeschwindigkeit *= 1000;
+				System.err.format(Thread.currentThread().getName()
+						+ getSponsor() + name + ": %.1f/%.1f\n", schritte,
+						this.laengeDerRennstrecke);
+				if (schritte == this.laengeDerRennstrecke) {
+					System.err.format("%s hat das Ziel erreicht\n",
+							this.getName());
 					interrupt();
 				}
 				try {
-					Thread.sleep((long) geschwindigkeit);
+					Thread.sleep((long) durchschnittsGeschwindigkeit );
 				} catch (InterruptedException e) {
 					interrupt();
 				}
@@ -78,16 +88,32 @@ public class Rennauto extends Thread implements Comparable<Rennauto> {
 	@Override
 	public int compareTo(Rennauto auto) {
 		int ergebnis = 0;
-		if (getZeit() < auto.getZeit()) {
+		if (this.gesamteRennzeit < auto.gesamteRennzeit) {
 			ergebnis = -1;
 		}
-		if (getZeit() == auto.getZeit()) {
+		if (this.gesamteRennzeit < auto.gesamteRennzeit) {
 			ergebnis = 0;
 		}
-		if (getZeit() > auto.getZeit()) {
+		if (this.gesamteRennzeit < auto.gesamteRennzeit) {
 			ergebnis = 1;
 		}
 		return ergebnis;
 	}
 
+	/**
+	 * Eigene Hilfsmethode fuer Sponsor
+	 * 
+	 * @return
+	 */
+	private String getSponsor() {
+		return " sponsored by ";
+	}
+
+	/**
+	 * toString Methode fuer die Ausgabe
+	 */
+	public String toString() {
+		return getName() + ": " + this.name + ": " + this.gesamteRennzeit
+				+ " Sekunden";
+	}
 }

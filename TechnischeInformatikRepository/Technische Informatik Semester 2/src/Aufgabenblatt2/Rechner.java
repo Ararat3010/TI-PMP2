@@ -10,7 +10,8 @@ import java.util.function.BinaryOperator;
  * Praktikum TIPR2, WS 2015
  *
  * @author Anushavan Melkonyan (Anushavan.Melkonyan@haw-hamburg.de),
- *
+ * @author Bennet Honisch (Bennet.honisch@haw-hamburg.de)
+ * 
  *         Aufgabe: Aufgabenblatt 2, Aufgabe 1
  */
 public class Rechner {
@@ -47,7 +48,15 @@ public class Rechner {
 	 * 
 	 * @return
 	 */
-	public double berechne(Operation berechnen, double wert1, double wert2) {
+	public double berechne(Operation berechnen, double wert1, double wert2)
+			throws Exception {
+		if (wert2 == 0 && berechnen == Operation.DIVISION) {
+			throw new Exception("Fehler: Darf nicht durch 0 geteilt werden");
+		}
+		if (berechnen == null) {
+			throw new Exception("Fehler : Der Operator darf nicht null sein");
+		}
+
 		return mapRechenArten.get(berechnen).apply(wert1, wert2);
 	}
 
