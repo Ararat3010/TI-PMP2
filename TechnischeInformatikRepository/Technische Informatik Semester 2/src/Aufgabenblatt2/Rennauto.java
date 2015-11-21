@@ -11,6 +11,8 @@ package Aufgabenblatt2;
  *         Aufgabe: Aufgabenblatt 2, Aufgabe 3
  */
 public class Rennauto extends Thread implements Comparable<Rennauto> {
+	
+	
 	/**
 	 * Variable Geschwindigkeit der Autos 0,8-1,2
 	 */
