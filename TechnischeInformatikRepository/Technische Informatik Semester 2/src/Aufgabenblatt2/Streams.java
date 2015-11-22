@@ -23,9 +23,7 @@ public class Streams {
 	 * @param text
 	 * @return
 	 */
-
-	public List<String> verarbeitungVonStrings(String text) {
-		String[] listArray = { text };
+	public List<String> verarbeitungVonStrings(String[] listArray) {
 		List<String> list = Arrays.asList(listArray);
 		List<String> listStream = list
 				.stream()
@@ -41,9 +39,7 @@ public class Streams {
 					return s;
 
 				}).collect(Collectors.toList());
-
 		return listStream;
 	
 	}
-
 }

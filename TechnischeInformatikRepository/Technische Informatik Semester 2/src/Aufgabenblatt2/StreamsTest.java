@@ -26,21 +26,32 @@ public class StreamsTest {
 		
 		Streams test = new Streams();
 
-		List<String> eingabe = new LinkedList<String>();
-		eingabe.add("EINGABE");
-		List<String> aeussere = new LinkedList<String>();
-		aeussere.add("AEUSSERE");
-		List<String> nulltest = new LinkedList<String>();
-		List<String> strassen = new LinkedList<String>();
-		strassen.add("STRASSEN");
-		List<String> einHaus = new LinkedList<String>();
-		einHaus.add("EIN HAUS");
-		assertEquals(test.verarbeitungVonStrings("Eingabe "), eingabe);
-		assertEquals(test.verarbeitungVonStrings("Äußere "), aeussere);
-		assertEquals(test.verarbeitungVonStrings(null), nulltest);
-		assertEquals(test.verarbeitungVonStrings("Strassen-Feger"), strassen);
-		assertEquals(test.verarbeitungVonStrings(" ein Haus"), einHaus);
+//		List<String> eingabe = new LinkedList<String>();
+//		eingabe.add("EINGABE");
+//		List<String> aeussere = new LinkedList<String>();
+//		aeussere.add("AEUSSERE");
+//		List<String> nulltest = new LinkedList<String>();
+//		List<String> strassen = new LinkedList<String>();
+//		strassen.add("STRASSEN");
+//		List<String> einHaus = new LinkedList<String>();
+//		einHaus.add("EIN HAUS");
+//		assertEquals(test.verarbeitungVonStrings("Eingabe "), eingabe);
+//		assertEquals(test.verarbeitungVonStrings("√Ñu√üere "), aeussere);
+//		assertEquals(test.verarbeitungVonStrings(null), nulltest);
+//		assertEquals(test.verarbeitungVonStrings("Strassen-Feger"), strassen);
+//		assertEquals(test.verarbeitungVonStrings(" ein Haus"), einHaus);
 
+		/**
+		 * ‹berarbeitung 21.November 15
+		 */
+		String[] listArray = {"Eingabe ","Äußeres ",null,"Strassen-Feger"," ein Haus"};
+		 
+		String[] listArrayKorrekt = {"EINGABE","AEUSSERE","STRASSEN","EIN HAUS"};
+		List<String> list2 = Arrays.asList(listArrayKorrekt);
+		
+		assertEquals(test.verarbeitungVonStrings(listArray),list2);
+		
+		
 	}
 
 }

@@ -23,6 +23,7 @@ public class Rennen {
 		Rennauto auto2 = new Rennauto("Mercedes",1,10);
 		Rennauto auto3 = new Rennauto("McLaren",1,10);
 		Rennauto auto4 = new Rennauto("Infinity",1,10);
+		
 		//benennen der Fahrer
 		auto1.setName("Vettel");
 		auto2.setName("Hamilton");

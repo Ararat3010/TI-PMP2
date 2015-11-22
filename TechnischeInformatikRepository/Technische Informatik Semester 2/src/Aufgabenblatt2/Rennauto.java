@@ -64,6 +64,7 @@ public class Rennauto extends Thread implements Comparable<Rennauto> {
 				durchschnittsGeschwindigkeit = (Math.random() * 0.4 + 0.8);
 				gesamteRennzeit += durchschnittsGeschwindigkeit;
 				durchschnittsGeschwindigkeit *= 1000;
+				gesamteRennzeit = Math.round(100.0 * gesamteRennzeit)/100.0;
 				System.err.format(Thread.currentThread().getName()
 						+ getSponsor() + name + ": %.1f/%.1f\n", schritte,
 						this.laengeDerRennstrecke);
@@ -93,10 +94,10 @@ public class Rennauto extends Thread implements Comparable<Rennauto> {
 		if (this.gesamteRennzeit < auto.gesamteRennzeit) {
 			ergebnis = -1;
 		}
-		if (this.gesamteRennzeit < auto.gesamteRennzeit) {
+		if (this.gesamteRennzeit == auto.gesamteRennzeit) {
 			ergebnis = 0;
 		}
-		if (this.gesamteRennzeit < auto.gesamteRennzeit) {
+		if (this.gesamteRennzeit > auto.gesamteRennzeit) {
 			ergebnis = 1;
 		}
 		return ergebnis;
@@ -119,3 +120,4 @@ public class Rennauto extends Thread implements Comparable<Rennauto> {
 				+ " Sekunden";
 	}
 }
+
