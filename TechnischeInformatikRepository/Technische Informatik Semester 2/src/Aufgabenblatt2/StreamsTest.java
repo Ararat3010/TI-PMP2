@@ -23,17 +23,16 @@ public class StreamsTest {
 
 	@Test
 	public void testStreams() {
-		
+
 		Streams testListe = new Streams();
 
-		String[] listArray = {"Eingabe ","Ã„uÃŸeres ",null,"Strassen-Feger"," ein Haus"};
-		 
-		String[] listArrayKorrekt = {"EINGABE","AEUSSERE","STRASSEN","EIN HAUS"};
+		String[] listArray = { "Eingabe ", "Äußeres ", null, "Strassen-Feger", " ein Haus" };
+
+		String[] listArrayKorrekt = { "EINGABE", "AEUSSERE", "STRASSEN", "EIN HAUS" };
 		List<String> listeKorrekt = Arrays.asList(listArrayKorrekt);
-		
-		assertEquals(testListe.verarbeitungVonStrings(listArray),listeKorrekt);
-		
-		
+
+		assertEquals(testListe.verarbeitungVonStrings(listArray), listeKorrekt);
+
 	}
 
 }

@@ -50,9 +50,9 @@ public class RechnerTest {
 
 		try {
 			assertEquals(test.berechne(null, -25, -30), -55, DELTA);
-			Assert.assertTrue("Fehler: Der Operator darf nicht null sein", true);
-		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
+			Assert.assertTrue("Fehler: Der Operator darf nicht null sein", false);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
 		// Division durch 0
 
@@ -68,6 +68,7 @@ public class RechnerTest {
 		extracted(test);
 	}
 
+	
 	@SuppressWarnings({ "deprecation", "null" })
 	private void extracted(Rechner test) throws Exception {
 		try {

@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.function.BinaryOperator;
 
 /* 
- * Klasse Rechner für die Berechnung der vier Grundrechenarten
+ * Klasse Rechner fuer die Berechnung der vier Grundrechenarten
  * 
  * Praktikum TIPR2, WS 2015
  *
@@ -22,7 +22,7 @@ public class Rechner {
 	private Map<Operation, BinaryOperator<Double>> mapRechenArten;
 
 	/**
-	 * Ein Enum mit Konstanten für die vier Grundrechenarten
+	 * Ein Enum mit Konstanten fuer die vier Grundrechenarten
 	 */
 	public enum Operation {
 		ADDITION, SUBTRAKTION, MULTIPLIKATION, DIVISION
@@ -35,7 +35,6 @@ public class Rechner {
 	public Rechner() {
 
 		mapRechenArten = new HashMap<Operation, BinaryOperator<Double>>();
-
 		mapRechenArten.put(Operation.ADDITION, (x, y) -> x + y);
 		mapRechenArten.put(Operation.SUBTRAKTION, (x, y) -> x - y);
 		mapRechenArten.put(Operation.MULTIPLIKATION, (x, y) -> x * y);
@@ -54,8 +53,7 @@ public class Rechner {
 	 * 
 	 * @return
 	 */
-	public double berechne(Operation berechnen, double wert1, double wert2)
-			throws Exception {
+	public double berechne(Operation berechnen, double wert1, double wert2) throws Exception {
 		if (wert2 == 0 && berechnen == Operation.DIVISION) {
 			throw new Exception("Fehler: Darf nicht durch 0 geteilt werden");
 		}

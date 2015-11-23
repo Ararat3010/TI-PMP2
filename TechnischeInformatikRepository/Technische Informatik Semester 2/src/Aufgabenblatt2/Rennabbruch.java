@@ -1,5 +1,6 @@
 package Aufgabenblatt2;
 
+import java.util.List;
 
 /**
  * Diese Klasse Simuliert einen Rennabbruch
@@ -12,23 +13,8 @@ public class Rennabbruch extends Thread {
 	/**
 	 * Erstes Auto
 	 */
-	private Rennauto auto1;
-	
-	/**
-	 * Zweites Auto
-	 */
-	private Rennauto auto2;
-	
-	/**
-	 * Drittes Auto
-	 */
-	private Rennauto auto3;
-	
-	/**
-	 * Viertes Auto
-	 */
-	private Rennauto auto4;
-	
+	private List<Rennauto> autoliste;
+
 	/**
 	 * Variable fuer die Rundenanzahl
 	 */
@@ -36,32 +22,29 @@ public class Rennabbruch extends Thread {
 
 	/**
 	 * Konstruktor fuer die Autos
+	 * 
 	 * @param auto1
 	 * @param auto2
 	 * @param auto3
 	 * @param auto4
 	 */
-	public Rennabbruch(Rennauto auto1, Rennauto auto2, Rennauto auto3,
-			Rennauto auto4,int runden) {
-		this.auto1 = auto1;
-		this.auto2 = auto2;
-		this.auto3 = auto3;
-		this.auto4 = auto4;
+	public Rennabbruch(List<Rennauto> autoliste, int runden) {
+		this.autoliste = autoliste;
 		this.runden = runden;
-		
+
 	}
 
 	/**
 	 * Die Funktion Math.random errechnet eine Zufallszahl in dem Bereich 1-10
-	 * (rennAbbruchWahrscheinlichkeit).
-	 * Nach jeder Berechnung wird eine Sekunde gewartet
-	 * Wenn die Wahrscheinlichkeit 1 ist (10%), dann werden alle Rennauto-Threads beendet.
+	 * (rennAbbruchWahrscheinlichkeit). Nach jeder Berechnung wird eine Sekunde
+	 * gewartet Wenn die Wahrscheinlichkeit 1 ist (10%), dann werden alle
+	 * Rennauto-Threads beendet.
 	 */
 	@Override
 	public void run() {
 		while (!isInterrupted()) {
 			for (int i = 1; !isInterrupted(); i++) {
-				int rennabbruchWahrscheinlichkeit = (int) (Math.random() *9+1);
+				int rennabbruchWahrscheinlichkeit = (int) (Math.random() * 9 + 1);
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
@@ -69,10 +52,9 @@ public class Rennabbruch extends Thread {
 				}
 				if (rennabbruchWahrscheinlichkeit == 1) {
 					interrupt();
-					auto1.interrupt();
-					auto2.interrupt();
-					auto3.interrupt();
-					auto4.interrupt();
+					for (Rennauto rennauto : autoliste) {
+						rennauto.interrupt();
+					}
 					System.out.println("Rennabbruch\n");
 				}
 				if (i == this.runden)
