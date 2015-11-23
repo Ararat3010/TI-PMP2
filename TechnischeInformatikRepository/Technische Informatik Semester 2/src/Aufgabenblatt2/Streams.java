@@ -30,8 +30,8 @@ public class Streams {
 				.filter(s -> s != null)
 				.map(s -> s.trim())
 				.map(s -> s.toUpperCase())
-				.map(s -> s.replaceAll("Ã„", "AE").replaceAll("Ã–", "OE")
-						.replaceAll("Ãœ", "UE").replaceAll("ÃŸ", "SS"))
+				.map(s -> s.replaceAll("Ä", "AE").replaceAll("Ö", "OE")
+				.replaceAll("Ü", "UE").replaceAll("ß", "SS"))
 				.map(s -> {
 					if (s.length() > 8) {
 						return s.substring(0, 8);
