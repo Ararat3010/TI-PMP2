@@ -21,7 +21,9 @@ import Aufgabenblatt2.Rechner.Operation;
 
 public class RechnerTest {
 
-	
+	/**
+	 * Für die Nullstellen
+	 */
 	private static final double DELTA = 1E-14;
 
 	@Test

@@ -11,7 +11,10 @@ import org.junit.Test;
 *         Aufgabe: Aufgabenblatt 2, Aufgabe 1
 */
 public class DoubleDoubleZuDoubleTest {
-
+	
+	/**
+	 *  Für die Nullstellen
+	 */
 	private static final double DELTA = 1E-14;
 
 	/** Multiplikation testen */

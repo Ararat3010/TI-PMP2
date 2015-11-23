@@ -16,8 +16,14 @@ import java.util.function.BinaryOperator;
  */
 public class Rechner {
 
+	/**
+	 * Eine Map in der die verschiedenen Rechenoperationen gespeichert sind
+	 */
 	private Map<Operation, BinaryOperator<Double>> mapRechenArten;
 
+	/**
+	 * Ein Enum mit Konstanten für die vier Grundrechenarten
+	 */
 	public enum Operation {
 		ADDITION, SUBTRAKTION, MULTIPLIKATION, DIVISION
 	};
@@ -54,7 +60,7 @@ public class Rechner {
 			throw new Exception("Fehler: Darf nicht durch 0 geteilt werden");
 		}
 		if (berechnen == null) {
-			throw new Exception("Fehler : Der Operator darf nicht null sein");
+			throw new Exception("Fehler: Der Operator darf nicht null sein");
 		}
 
 		return mapRechenArten.get(berechnen).apply(wert1, wert2);
