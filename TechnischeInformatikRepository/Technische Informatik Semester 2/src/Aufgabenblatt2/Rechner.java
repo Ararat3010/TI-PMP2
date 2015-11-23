@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.function.BinaryOperator;
 
 /* 
+ * 
  * Klasse Rechner fuer die Berechnung der vier Grundrechenarten
  * 
  * Praktikum TIPR2, WS 2015

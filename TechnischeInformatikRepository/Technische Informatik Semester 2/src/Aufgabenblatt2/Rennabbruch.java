@@ -3,6 +3,7 @@ package Aufgabenblatt2;
 import java.util.List;
 
 /**
+ * 
  * Diese Klasse Simuliert einen Rennabbruch
  * 
  * @author Bennet Honisch (Bennet.honisch@haw-hamburg.de)

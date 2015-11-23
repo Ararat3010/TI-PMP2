@@ -8,6 +8,7 @@ import org.junit.Test;
 import Aufgabenblatt2.Rechner.Operation;
 
 /**
+ * 
  * Testklasse für Rechner
  * 
  * Praktikum TIPR2, WS 2015

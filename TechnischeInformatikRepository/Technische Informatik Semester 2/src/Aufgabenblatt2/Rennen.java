@@ -3,7 +3,6 @@ package Aufgabenblatt2;
 import java.util.*;
 
 /**
- * 
  * Klasse Rennen repräsentiert unsere Fahrzeuge auf der Rennstrecke
  * 
  * Praktikum TIPR2, WS 2015

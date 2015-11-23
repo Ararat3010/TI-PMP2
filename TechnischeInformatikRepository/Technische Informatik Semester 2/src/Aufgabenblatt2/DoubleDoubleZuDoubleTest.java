@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
+ * 
  * Praktikum TIPR2, WS 2015
  *
  * @author Anushavan Melkonyan (Anushavan.Melkonyan@haw-hamburg.de),

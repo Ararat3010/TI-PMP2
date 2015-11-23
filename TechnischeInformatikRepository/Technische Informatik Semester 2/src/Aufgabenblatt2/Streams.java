@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
+ * 
  * Eine Klasse die mit Streams arbeitet
  * 
  * Praktikum TIPR2, WS 2015

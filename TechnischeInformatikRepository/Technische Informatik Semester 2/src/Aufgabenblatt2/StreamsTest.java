@@ -7,6 +7,7 @@ import java.util.*;
 import org.junit.Test;
 
 /**
+ * 
  * Testklasse fuer Streams
  * 
  * 

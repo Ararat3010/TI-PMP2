@@ -1,6 +1,7 @@
 package Aufgabenblatt2;
 
 /**
+ * 
  * Ein Funktionales Interface für "DoubleDoubleZuDouble" die eine Methode
  * werteAus() besitzt
  * 
