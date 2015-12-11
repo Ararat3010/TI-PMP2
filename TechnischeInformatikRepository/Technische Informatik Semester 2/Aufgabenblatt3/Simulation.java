@@ -1,5 +1,7 @@
 package Aufgabenblatt3;
 
+import java.util.Observable;
+
 /**
  * 
  * Die Klasse Simulation repaesentiert ein Programm, in dem Lokfuhrer erstellt
@@ -13,12 +15,20 @@ package Aufgabenblatt3;
  *         Aufgabe: Aufgabenblatt 3, Aufgabe 3
  */
 
-public class Simulation implements Runnable {
+public class Simulation extends Observable implements Runnable {
 
 	/**
 	 * Erstellen eines Bahnhofs-Objekt's
 	 */
-	Rangierbahnhof bahnhof = new Rangierbahnhof(3);
+	private Rangierbahnhof bahnhof;
+
+	public Simulation(Rangierbahnhof bahnhof) {
+		this.bahnhof = bahnhof;
+	}
+
+	public Rangierbahnhof getBahnhof() {
+		return bahnhof;
+	}
 
 	@Override
 	public void run() {
@@ -29,10 +39,7 @@ public class Simulation implements Runnable {
 				lok1.start();
 				Thread.sleep(500);
 				System.out.println(lok1);
-			} catch (InterruptedException e) {
-
-			}
-			try {
+				
 				Lokfuehrer lok2 = new Lokfuehrer(new AufgabeZugAusfahren(
 						this.bahnhof));
 				lok2.start();
@@ -41,7 +48,11 @@ public class Simulation implements Runnable {
 			} catch (InterruptedException e) {
 
 			}
+		
+			setChanged();
+			notifyObservers();
+			
 		}
 	}
-
+	
 }
