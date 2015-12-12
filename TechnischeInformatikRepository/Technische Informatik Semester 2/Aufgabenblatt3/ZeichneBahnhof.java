@@ -20,10 +20,15 @@ import javafx.scene.shape.Path;
 
 public class ZeichneBahnhof {
 
+	/**
+	 * Erstellen eines leeren Gleises
+	 * @return
+	 */
 	public Path leeresGleis() {
 
 		Path bahnhof = new Path();
 		bahnhof.setStroke(Color.BLACK);
+		bahnhof.setFill(Color.WHITE);
 		MoveTo moveTo2 = new MoveTo();
 		moveTo2.setX(200);
 		moveTo2.setY(0);
@@ -46,6 +51,10 @@ public class ZeichneBahnhof {
 
 	}
 	
+	/**
+	 * Erstellen eines besetzten Gleises
+	 * @return
+	 */
 	public Path besetztesGleis(){
 
 

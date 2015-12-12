@@ -31,6 +31,11 @@ public class Rangierbahnhof {
 		this.anzahlGleise = anzahl;
 	}
 
+	/**
+	 * Getter fuer die Gleise
+	 * @param index
+	 * @return
+	 */
 	public Zug getGleise(int index) {
 		return gleise[index];
 	}
@@ -46,6 +51,8 @@ public class Rangierbahnhof {
 			try {
 				if (this.gleise[gleis] == null) {
 					this.gleise[gleis] = zug;
+					System.err.format( "Der Zug wurde auf Gleis %d eingefahren\n",gleis);
+
 					notify();
 					break;
 				}
@@ -67,6 +74,8 @@ public class Rangierbahnhof {
 			try {
 				if (this.gleise[gleis] != null) {
 					this.gleise[gleis] = null;
+					System.err.format( "Der Zug wurde auf Gleis %d ausgefahren\n",gleis);
+
 					notify();
 					break;
 				}

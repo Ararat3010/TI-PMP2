@@ -4,7 +4,7 @@ import java.util.Observable;
 
 /**
  * 
- * Die Klasse Simulation repaesentiert ein Programm, in dem Lokfuhrer erstellt
+ * Die Klasse Simulation repraesentiert ein Programm, in dem Lokfuehrer erstellt
  * werden, welche die Zuege Ein-und Ausfahren.
  * 
  * Praktikum TIPR2, WS 2015
@@ -22,37 +22,49 @@ public class Simulation extends Observable implements Runnable {
 	 */
 	private Rangierbahnhof bahnhof;
 
+	/**
+	 * Konstruktor für den Bahnhof
+	 * 
+	 * @param bahnhof
+	 */
 	public Simulation(Rangierbahnhof bahnhof) {
 		this.bahnhof = bahnhof;
 	}
 
+	/**
+	 * Getter für die Bahnhofsvariable
+	 * 
+	 * @return
+	 */
 	public Rangierbahnhof getBahnhof() {
 		return bahnhof;
 	}
 
+	/**
+	 * In dieser Run-Methode wird alle 500ms ein neuer Lokfuehrer-Thread
+	 * erstellt. Die jeweilige Aufgabe des Lokfuehrers wird zufallsbasiert
+	 * ausgewählt. Entweder wird ein Zug aus einem Gleis ein- oder Ausgefahren.
+	 */
 	@Override
 	public void run() {
 		while (true) {
 			try {
-				Lokfuehrer lok1 = new Lokfuehrer(new AufgabeZugEinfahren(
-						this.bahnhof, new Zug()));
-				lok1.start();
-				Thread.sleep(500);
-				System.out.println(lok1);
-				
-				Lokfuehrer lok2 = new Lokfuehrer(new AufgabeZugAusfahren(
-						this.bahnhof));
-				lok2.start();
-				Thread.sleep(500);
-				System.out.println(lok2);
+				int randomAufgabe = (int) (Math.random() * 2);
+				if (randomAufgabe == 0) {
+					Lokfuehrer lok1 = new Lokfuehrer(new AufgabeZugEinfahren(this.bahnhof, new Zug()));
+					lok1.start();
+					Thread.sleep(500);
+				} else {
+					Lokfuehrer lok2 = new Lokfuehrer(new AufgabeZugAusfahren(this.bahnhof));
+					lok2.start();
+					Thread.sleep(500);
+				}
 			} catch (InterruptedException e) {
 
 			}
-		
 			setChanged();
 			notifyObservers();
-			
 		}
 	}
-	
+
 }
