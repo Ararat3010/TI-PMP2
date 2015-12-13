@@ -19,6 +19,8 @@ public class AufgabeZugEinfahren implements Aufgaben {
 	 */
 	private Rangierbahnhof bahnhof;
 
+	private int zufallsgleis;
+	
 	/**
 	 * Zugvariable
 	 */
@@ -38,14 +40,16 @@ public class AufgabeZugEinfahren implements Aufgaben {
 	 */
 	@Override
 	public void aufgabe() {
-		int zufallsgleis = (int) (Math.random() * 3);
+		zufallsgleis = (int) (Math.random() * 3);
+		if(bahnhof.getGleise(zufallsgleis)==null){
 		bahnhof.zugEinfahren(zug, zufallsgleis);
+		} 
 
 	}
 
 	@Override
 	public String toString() {
-		return "Der Zug wurde eingefahren.";
+		return "";
 	}
 
 }

@@ -19,6 +19,8 @@ public class AufgabeZugAusfahren implements Aufgaben {
 	 */
 	Rangierbahnhof bahnhof;
 
+	private int zufallsgleis;
+	
 	/**
 	 * Konstruktor
 	 */
@@ -31,13 +33,15 @@ public class AufgabeZugAusfahren implements Aufgaben {
 	 */
 	@Override
 	public void aufgabe() {
-		int zufallsgleis = (int) (Math.random() * 3);
+		zufallsgleis = (int) (Math.random() * 3);
+		if(bahnhof.getGleise(zufallsgleis)!=null){
 		bahnhof.zugAusfahren(zufallsgleis);
+		}
 	}
 
 	@Override
 	public String toString() {
-		return "Der Zug wurde ausgefahren.";
+		return "";
 	}
 
 }

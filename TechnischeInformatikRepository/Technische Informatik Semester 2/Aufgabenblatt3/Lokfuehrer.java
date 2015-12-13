@@ -39,6 +39,6 @@ public class Lokfuehrer extends Thread {
 
 	@Override
 	public String toString() {
-		return "" + aufgabe + "wurde ausgefuehrt";
+		return "";
 	}
 }
