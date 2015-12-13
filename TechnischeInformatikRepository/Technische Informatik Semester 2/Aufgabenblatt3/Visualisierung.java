@@ -11,11 +11,15 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 /**
+ * 
  * Diese Klasse repraesentiert die Visualisierung des Gueterzugbahnhofs
+ * 
  * Praktikum TIPR2, WS 2015
  *
- * @author Anushavan Melkonyan (Anushavan.Melkonyan@haw-hamburg.de)
- *
+ * @author Anushavan Melkonyan (Anushavan.Melkonyan@haw-hamburg.de),
+ * @author Bennet Honisch (Bennet.honisch@haw-hamburg.de)
+ * 
+ *         Aufgabe: Aufgabenblatt 3, Aufgabe 4
  */
 public class Visualisierung extends Application implements Observer {
 
