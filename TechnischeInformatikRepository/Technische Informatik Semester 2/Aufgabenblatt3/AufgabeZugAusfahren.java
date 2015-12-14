@@ -34,9 +34,7 @@ public class AufgabeZugAusfahren implements Aufgaben {
 	@Override
 	public void aufgabe() {
 		zufallsgleis = (int) (Math.random() * 3);
-		if(bahnhof.getGleise(zufallsgleis)!=null){
-		bahnhof.zugAusfahren(zufallsgleis);
-		}
+		bahnhof.zugAusfahren(zufallsgleis);	
 	}
 
 	@Override

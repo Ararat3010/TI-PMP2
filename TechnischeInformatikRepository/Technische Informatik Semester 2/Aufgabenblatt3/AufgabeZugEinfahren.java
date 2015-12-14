@@ -41,10 +41,7 @@ public class AufgabeZugEinfahren implements Aufgaben {
 	@Override
 	public void aufgabe() {
 		zufallsgleis = (int) (Math.random() * 3);
-		if(bahnhof.getGleise(zufallsgleis)==null){
 		bahnhof.zugEinfahren(zug, zufallsgleis);
-		} 
-
 	}
 
 	@Override
