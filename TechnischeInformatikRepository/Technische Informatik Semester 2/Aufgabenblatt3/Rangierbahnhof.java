@@ -45,11 +45,6 @@ public class Rangierbahnhof {
 	 */
 	public synchronized void zugEinfahren(Zug zug, int gleis) {
 		
-		// while (gleis belegt)
-		//     Zwischenparken
-		// gleis belegen
-		// anderen Threads 
-		
 		while (this.gleise[gleis] != null) {
 			try {
 				wait();
