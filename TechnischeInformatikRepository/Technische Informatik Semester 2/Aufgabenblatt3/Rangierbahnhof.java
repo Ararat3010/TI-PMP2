@@ -44,21 +44,23 @@ public class Rangierbahnhof {
 	 * @param gleis
 	 */
 	public synchronized void zugEinfahren(Zug zug, int gleis) {
-		while (this.gleise[gleis] == null) {
+		
+		// while (gleis belegt)
+		//     Zwischenparken
+		// gleis belegen
+		// anderen Threads 
+		
+		while (this.gleise[gleis] != null) {
 			try {
-				if (this.gleise[gleis] == null) {
-					this.gleise[gleis] = zug;
-					System.err.format( "Der Zug wurde auf Gleis %d eingefahren\n",gleis);
-
-					notify();
-					break;
-				}
 				wait();
-			} catch (InterruptedException e) {
-
+				//System.out.println("Warten Einfahren");
+				}				
+			 catch (InterruptedException e) {			
 			}
-
 		}
+		this.gleise[gleis] = zug;
+		System.err.format( "Der Zug wurde auf Gleis %d eingefahren\n",gleis+1);
+		notifyAll();			
 	}
 
 	/**
@@ -67,19 +69,16 @@ public class Rangierbahnhof {
 	 * @param gleis
 	 */
 	public synchronized void zugAusfahren(int gleis) {
-		while (this.gleise[gleis] != null) {
+		while (this.gleise[gleis] == null) {
 			try {
-				if (this.gleise[gleis] != null) {
-					this.gleise[gleis] = null;
-					System.err.format( "Der Zug wurde auf Gleis %d ausgefahren\n",gleis);
-
-					notify();
-					break;
-				}
 				wait();
-			} catch (InterruptedException e) {
-
+				//System.out.println("Warten Ausfahren");
+				}				
+			 catch (InterruptedException e) {			
 			}
 		}
+		this.gleise[gleis] = null;
+		System.err.format( "Der Zug wurde auf Gleis %d ausgefahren\n",gleis+1);
+		notifyAll();
 	}
 }
