@@ -15,11 +15,9 @@ package Aufgabenblatt3;
 public class Rangierbahnhof {
 
 	/**
-	 * Array f¸r die Gleise
+	 * Array fuer die Gleise
 	 */
 	private Zug[] gleise;
-
-	private int anzahlGleise;
 
 	/**
 	 * Konstruktor
@@ -28,7 +26,6 @@ public class Rangierbahnhof {
 	 */
 	public Rangierbahnhof(int anzahl) {
 		this.gleise = new Zug[anzahl];
-		this.anzahlGleise = anzahl;
 	}
 
 	/**

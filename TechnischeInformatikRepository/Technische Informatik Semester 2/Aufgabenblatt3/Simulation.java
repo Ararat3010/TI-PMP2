@@ -23,7 +23,7 @@ public class Simulation extends Observable implements Runnable {
 	private Rangierbahnhof bahnhof;
 
 	/**
-	 * Konstruktor für den Bahnhof
+	 * Konstruktor fuer den Bahnhof
 	 * 
 	 * @param bahnhof
 	 */
@@ -32,7 +32,7 @@ public class Simulation extends Observable implements Runnable {
 	}
 
 	/**
-	 * Getter für die Bahnhofsvariable
+	 * Getter fuer die Bahnhofsvariable
 	 * 
 	 * @return
 	 */
@@ -43,7 +43,7 @@ public class Simulation extends Observable implements Runnable {
 	/**
 	 * In dieser Run-Methode wird alle 500ms ein neuer Lokfuehrer-Thread
 	 * erstellt. Die jeweilige Aufgabe des Lokfuehrers wird zufallsbasiert
-	 * ausgewählt. Entweder wird ein Zug aus einem Gleis ein- oder Ausgefahren.
+	 * ausgewaehlt. Entweder wird ein Zug aus einem Gleis Ein- oder Ausgefahren.
 	 */
 	@Override
 	public void run() {
